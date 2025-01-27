@@ -1,0 +1,102 @@
+2025-01-27 20:46:07,430 - __main__ - ERROR - Error in add_subscription handler: There is no text in the message to edit
+Traceback (most recent call last):
+  File "C:\Users\User\Downloads\скрипт excel\main.py", line 77, in add_subscription
+    query.edit_message_text("Введите название подписки:")
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\callbackquery.py", line 216, in edit_message_text
+    return self.message.edit_text(
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\message.py", line 1935, in edit_text
+    return self.bot.edit_message_text(
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\bot.py", line 130, in decorator
+    result = func(*args, **kwargs)
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\bot.py", line 2582, in edit_message_text
+    return self._message(
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\ext\extbot.py", line 199, in _message
+    result = super()._message(
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\bot.py", line 332, in _message
+    result = self._post(endpoint, data, timeout=timeout, api_kwargs=api_kwargs)
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\bot.py", line 295, in _post
+    return self.request.post(
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\utils\request.py", line 356, in post
+    result = self._request_wrapper(
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\utils\request.py", line 279, in _request_wrapper
+    raise BadRequest(message)
+telegram.error.BadRequest: There is no text in the message to edit
+2025-01-27 20:46:40,141 - __main__ - ERROR - Error in add_subscription handler: There is no text in the message to edit
+Traceback (most recent call last):
+  File "C:\Users\User\Downloads\скрипт excel\main.py", line 77, in add_subscription
+    query.edit_message_text("Введите название подписки:")
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\callbackquery.py", line 216, in edit_message_text
+    return self.message.edit_text(
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\message.py", line 1935, in edit_text
+    return self.bot.edit_message_text(
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\bot.py", line 130, in decorator
+    result = func(*args, **kwargs)
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\bot.py", line 2582, in edit_message_text
+    return self._message(
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\ext\extbot.py", line 199, in _message
+    result = super()._message(
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\bot.py", line 332, in _message
+    result = self._post(endpoint, data, timeout=timeout, api_kwargs=api_kwargs)
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\bot.py", line 295, in _post
+    return self.request.post(
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\utils\request.py", line 356, in post
+    result = self._request_wrapper(
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\utils\request.py", line 279, in _request_wrapper
+    raise BadRequest(message)
+telegram.error.BadRequest: There is no text in the message to edit
+2025-01-27 20:49:24,601 - __main__ - CRITICAL - Critical error in main: unbound method datetime.time() needs an argument
+Traceback (most recent call last):
+  File "C:\Users\User\Downloads\скрипт excel\main.py", line 239, in main
+    job_queue.run_daily(check_subscriptions_for_reminders, time=datetime.time(hour=9, minute=0, second=0))  # Например, в 9:00
+TypeError: unbound method datetime.time() needs an argument
+2025-01-27 20:49:29,074 - __main__ - CRITICAL - Critical error in main: unbound method datetime.time() needs an argument
+Traceback (most recent call last):
+  File "C:\Users\User\Downloads\скрипт excel\main.py", line 239, in main
+    job_queue.run_daily(check_subscriptions_for_reminders, time=datetime.time(hour=9, minute=0, second=0))  # Например, в 9:00
+TypeError: unbound method datetime.time() needs an argument
+2025-01-27 20:53:39,860 - __main__ - CRITICAL - Critical error in main: Invalid token
+Traceback (most recent call last):
+  File "C:\Users\User\Downloads\скрипт excel\main.py", line 282, in main
+    updater = Updater(TOKEN)
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\ext\updater.py", line 279, in __init__
+    self.bot = ExtBot(
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\ext\extbot.py", line 97, in __init__
+    super().__init__(
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\bot.py", line 191, in __init__
+    self.token = self._validate_token(token)
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\bot.py", line 351, in _validate_token
+    raise InvalidToken()
+telegram.error.InvalidToken: Invalid token
+2025-01-27 20:54:27,132 - __main__ - CRITICAL - Critical error in main: unbound method datetime.time() needs an argument
+Traceback (most recent call last):
+  File "C:\Users\User\Downloads\скрипт excel\main.py", line 287, in main
+    job_queue.run_daily(check_subscriptions_for_reminders, time=datetime.time(hour=9, minute=0, second=0))
+TypeError: unbound method datetime.time() needs an argument
+2025-01-27 21:00:56,343 - __main__ - CRITICAL - Critical error in main: descriptor 'time' for 'datetime.datetime' objects doesn't apply to a 'int' object
+Traceback (most recent call last):
+  File "C:\Users\User\Downloads\скрипт excel\main.py", line 287, in main
+    reminder_time = datetime.time(9, 0, 0)  # 9:00:00
+TypeError: descriptor 'time' for 'datetime.datetime' objects doesn't apply to a 'int' object
+2025-01-27 21:14:41,490 - __main__ - ERROR - Error in list_subscriptions handler: There is no text in the message to edit
+Traceback (most recent call last):
+  File "C:\Users\User\Downloads\скрипт excel\main.py", line 151, in list_subscriptions
+    query.edit_message_text(response, reply_markup=main_menu())
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\callbackquery.py", line 216, in edit_message_text
+    return self.message.edit_text(
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\message.py", line 1935, in edit_text
+    return self.bot.edit_message_text(
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\bot.py", line 130, in decorator
+    result = func(*args, **kwargs)
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\bot.py", line 2582, in edit_message_text
+    return self._message(
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\ext\extbot.py", line 199, in _message
+    result = super()._message(
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\bot.py", line 332, in _message
+    result = self._post(endpoint, data, timeout=timeout, api_kwargs=api_kwargs)
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\bot.py", line 295, in _post
+    return self.request.post(
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\utils\request.py", line 356, in post
+    result = self._request_wrapper(
+  File "C:\Users\User\Downloads\скрипт excel\test\lib\site-packages\telegram\utils\request.py", line 279, in _request_wrapper
+    raise BadRequest(message)
+telegram.error.BadRequest: There is no text in the message to edit
