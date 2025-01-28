@@ -19,27 +19,20 @@ from database import Database
 # Загрузка переменных окружения
 load_dotenv()
 
-# Настройка логирования
+# Настройка логирования для Vercel (без файлов)
 logging.basicConfig(
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     level=logging.INFO,
-    filename='bot.log'
+    # Убираем запись в файл, используем stdout
 )
 logger = logging.getLogger(__name__)
-
-# Файловый обработчик для критических ошибок
-error_handler = logging.FileHandler('errors.log')
-error_handler.setLevel(logging.ERROR)
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
-error_handler.setFormatter(formatter)
-logger.addHandler(error_handler)
 
 # Константы для ConversationHandler
 NAME, COST, DATE = range(3)
 
 # Конфигурация
 TOKEN = os.getenv('TELEGRAM_TOKEN')
-DB_FILE = 'subscriptions.db'
+DB_FILE = ':memory:'  # Используем in-memory SQLite для Vercel
 
 # Инициализация базы данных
 db = Database(DB_FILE)

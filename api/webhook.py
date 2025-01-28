@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import telebot
 import os
 from datetime import datetime, timedelta
@@ -18,11 +18,11 @@ from database import Database
 
 app = Flask(__name__)
 bot = telebot.TeleBot(os.getenv('TELEGRAM_TOKEN'))
-db = Database('subscriptions.db')
+db = Database(':memory:')  # Используем in-memory SQLite
 
 @app.route('/', methods=['GET'])
 def index():
-    return 'Bot is running'
+    return jsonify({"status": "Bot is running"})
 
 @app.route('/webhook', methods=['POST'])
 def webhook():
@@ -30,8 +30,8 @@ def webhook():
         json_string = request.get_data().decode('utf-8')
         update = telebot.types.Update.de_json(json_string)
         bot.process_new_updates([update])
-        return 'OK', 200
-    return 'Error', 403
+        return jsonify({"status": "OK"}), 200
+    return jsonify({"status": "Error"}), 403
 
 # Регистрируем обработчики
 @bot.message_handler(commands=['start'])

@@ -8,9 +8,16 @@ class Database:
         self.db_file = db_file
         self.init_db()
 
+    def get_connection(self):
+        """Получение соединения с БД"""
+        if self.db_file == ':memory:':
+            # Для Vercel используем in-memory базу данных
+            return sqlite3.connect(':memory:', check_same_thread=False)
+        return sqlite3.connect(self.db_file)
+
     def init_db(self):
         """Инициализация базы данных"""
-        with sqlite3.connect(self.db_file) as conn:
+        with self.get_connection() as conn:
             cursor = conn.cursor()
             # Таблица пользователей
             cursor.execute('''
@@ -38,7 +45,7 @@ class Database:
 
     def add_user(self, user_id: int, username: str, first_name: str) -> None:
         """Добавление нового пользователя"""
-        with sqlite3.connect(self.db_file) as conn:
+        with self.get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute('''
                 INSERT OR IGNORE INTO users (user_id, username, first_name)
@@ -48,7 +55,7 @@ class Database:
 
     def add_subscription(self, user_id: int, name: str, cost: float, payment_date: str) -> int:
         """Добавление новой подписки"""
-        with sqlite3.connect(self.db_file) as conn:
+        with self.get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute('''
                 INSERT INTO subscriptions (user_id, name, cost, payment_date)
@@ -59,7 +66,7 @@ class Database:
 
     def get_user_subscriptions(self, user_id: int) -> List[Dict]:
         """Получение всех подписок пользователя"""
-        with sqlite3.connect(self.db_file) as conn:
+        with self.get_connection() as conn:
             conn.row_factory = sqlite3.Row
             cursor = conn.cursor()
             cursor.execute('''
@@ -71,7 +78,7 @@ class Database:
 
     def delete_subscription(self, subscription_id: int, user_id: int) -> bool:
         """Удаление подписки"""
-        with sqlite3.connect(self.db_file) as conn:
+        with self.get_connection() as conn:
             cursor = conn.cursor()
             cursor.execute('''
                 DELETE FROM subscriptions 
@@ -82,7 +89,7 @@ class Database:
 
     def get_all_users(self) -> List[Dict]:
         """Получение всех пользователей."""
-        with sqlite3.connect(self.db_file) as conn:
+        with self.get_connection() as conn:
             conn.row_factory = sqlite3.Row
             cursor = conn.cursor()
             cursor.execute('SELECT * FROM users')
