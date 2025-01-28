@@ -62,11 +62,15 @@ python main.py
 
 ## Структура проекта
 subscription-manager-bot/
-├── main.py # Основной файл бота
-├── database.py # Работа с базой данных
+├── api/
+│   └── webhook.py    # Обработчик вебхуков для Vercel
+├── main.py          # Основной файл бота
+├── database.py      # Работа с базой данных
 ├── requirements.txt # Зависимости проекта
-├── .env # Конфигурация (токен бота)
-└── README.md # Документация
+├── runtime.txt      # Версия Python для Vercel
+├── vercel.json      # Конфигурация Vercel
+├── .env            # Конфигурация (токен бота)
+└── README.md       # Документация
 
 ## Безопасность
 

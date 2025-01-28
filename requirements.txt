@@ -1,4 +1,6 @@
-   numpy<2
-   python-telegram-bot==13.7
-   python-dotenv==0.19.2
-   matplotlib==3.5.1
+numpy<2
+python-telegram-bot==13.7
+python-dotenv==0.19.2
+matplotlib==3.5.1
+Flask==2.0.1
+pyTelegramBotAPI==4.12.0
